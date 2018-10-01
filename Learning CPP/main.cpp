@@ -10,10 +10,16 @@
 
 // Following https://www.youtube.com/watch?v=vLnPwxZdW4Y tutorial
 
+using namespace std;
+
 int main(int argc, const char * argv[]) {
-	std::cout << "There was once a man named George\n";
-	std::cout << "He was 70 years old\n";
-	std::cout << "He liked being named George\n";
-	std::cout << "But he didn't like being 70\n";
+	string name = "John";
+	int age = 35;
+	
+	std::cout << "There was once a man named " << name << "\n";
+	std::cout << "He was " << age << " years old\n";
+	std::cout << "He liked being named " << name << "\n";
+	std::cout << "But he didn't like being " << age << "\n";
+	
 	return 0;
 }
