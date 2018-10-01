@@ -10,26 +10,43 @@
 
 // Following https://www.youtube.com/watch?v=vLnPwxZdW4Y tutorial
 
+#include <cmath>
+
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	char grade = 'A';
-	string phrase = "Giraffe Academy";
+	cout << "literals" << endl;
 	
-	int age = 50;
-	float floatingPi = 3.14159265359;
-	double doublePi = 2.71828182846;
+	cout << 40 << endl;
+	cout << 3.1 << endl;
+	cout << 3+7 << endl;
+	cout << 6*4 << endl;
+	cout << 10/3 << endl; // integer arithmetic
+	cout << 10.0/3 << endl; // float arithmetic
+	cout << 10%3 << endl;
 	
-	bool isStereotype = true;
+	cout << "variables" << endl;
 	
-	cout << phrase.length() << endl;
-	cout << phrase[0] << endl;
-	cout << phrase.find("Academy") << endl;
-	cout << phrase.find("Academy", 10) << endl; // Not found == -1, went to console as 18446744073709551615
-	phrase[0] = 'B';
-	cout << phrase << endl;
-	string substring = phrase.substr(8, 3);
-	cout << substring << endl;
+	int i = 0;
+	cout << i << endl;
+	i++;
+	cout << i << endl;
+	i+=10;
+	cout << i << endl;
+	
+	cout << "cmath" << endl;
+	
+	cout << pow(2, 5) << endl;
+	cout << sqrt(572.3) << endl;
+	cout << round(4.6) << endl;
+	cout << floor(4.6) << endl;
+	cout << ceil(4.6) << endl;
+	cout << ceil(4.1) << endl;
+	
+	float a = 1.234;
+	float b = 6.432;
+	cout << fmax(a, b) << endl;
+	cout << fmin(a, b) << endl;
 	
 	return 0;
 }
