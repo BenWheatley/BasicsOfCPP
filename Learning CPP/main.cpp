@@ -22,6 +22,14 @@ int main(int argc, const char * argv[]) {
 	
 	bool isStereotype = true;
 	
+	cout << phrase.length() << endl;
+	cout << phrase[0] << endl;
+	cout << phrase.find("Academy") << endl;
+	cout << phrase.find("Academy", 10) << endl; // Not found == -1, went to console as 18446744073709551615
+	phrase[0] = 'B';
+	cout << phrase << endl;
+	string substring = phrase.substr(8, 3);
+	cout << substring << endl;
 	
 	return 0;
 }
