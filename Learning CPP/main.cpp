@@ -13,13 +13,15 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	string name = "John";
-	int age = 35;
+	char grade = 'A';
+	string phrase = "Giraffe Academy";
 	
-	std::cout << "There was once a man named " << name << "\n";
-	std::cout << "He was " << age << " years old\n";
-	std::cout << "He liked being named " << name << "\n";
-	std::cout << "But he didn't like being " << age << "\n";
+	int age = 50;
+	float floatingPi = 3.14159265359;
+	double doublePi = 2.71828182846;
+	
+	bool isStereotype = true;
+	
 	
 	return 0;
 }
