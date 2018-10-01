@@ -15,38 +15,18 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	cout << "literals" << endl;
+	int age;
+	cout << "Enter your age: ";
+	cin >> age;
 	
-	cout << 40 << endl;
-	cout << 3.1 << endl;
-	cout << 3+7 << endl;
-	cout << 6*4 << endl;
-	cout << 10/3 << endl; // integer arithmetic
-	cout << 10.0/3 << endl; // float arithmetic
-	cout << 10%3 << endl;
+	cin.clear();
+	cin.ignore(INT_MAX,'\n');
 	
-	cout << "variables" << endl;
+	string name;
+	cout << "Enter your name: ";
+	getline(cin, name);
 	
-	int i = 0;
-	cout << i << endl;
-	i++;
-	cout << i << endl;
-	i+=10;
-	cout << i << endl;
-	
-	cout << "cmath" << endl;
-	
-	cout << pow(2, 5) << endl;
-	cout << sqrt(572.3) << endl;
-	cout << round(4.6) << endl;
-	cout << floor(4.6) << endl;
-	cout << ceil(4.6) << endl;
-	cout << ceil(4.1) << endl;
-	
-	float a = 1.234;
-	float b = 6.432;
-	cout << fmax(a, b) << endl;
-	cout << fmin(a, b) << endl;
+	cout << "Hello " << name << "; You are " << age << " years old!" << endl;
 	
 	return 0;
 }
