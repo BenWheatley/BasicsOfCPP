@@ -15,15 +15,18 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	double num1, num2;
+	string colour, pluralNoun, celebrity;
 	
-	cout << "Enter first number\n";
-	cin >> num1;
+	cout << "Enter colour: " << endl;
+	getline(cin, colour);
+	cout << "Enter plural noun: " << endl;
+	getline(cin, pluralNoun);
+	cout << "Enter celebrity: " << endl;
+	getline(cin, celebrity);
 	
-	cout << "Enter second number\n";
-	cin >> num2;
-	
-	cout << "Total: " << num1+num2;
+	cout << "Roses are " << colour << endl;
+	cout << pluralNoun << " are blue" << endl;
+	cout << "I love " << celebrity << endl;
 	
 	return 0;
 }
