@@ -15,10 +15,11 @@
 using namespace std;
 
 class Student {
-public:
+private:
 	string name;
 	string major;
 	double gpa;
+public:
 	Student(string aName, string aMajor, double aGPA) {
 		name = aName;
 		major = aMajor;
@@ -28,6 +29,18 @@ public:
 	bool hasHonours() {
 		return gpa>=3.5;
 	}
+	
+	void setGPA(double aGPA) {
+		if (aGPA>0 && aGPA<5.0)	{
+			gpa = aGPA;
+		} else {
+			gpa = 2.5;
+		}
+	}
+	double getGPA() {
+		return gpa;
+	}
+	
 };
 
 int main(int argc, const char * argv[]) {
@@ -36,6 +49,10 @@ int main(int argc, const char * argv[]) {
 	Student student2("Jim", "Business", 3.8);
 	Student student3("Anne", "Business", 4.8);
 	Student student4("Claire", "Science", 3.1);
+	
+	cout << "student2 GPA: " << student2.getGPA() << endl;
+	student2.setGPA(-1.0);
+	cout << "student2 GPA: " << student2.getGPA() << endl;
 	
 	cout << student1.hasHonours() << endl;
 	cout << student2.hasHonours() << endl;
