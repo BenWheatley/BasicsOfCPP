@@ -14,17 +14,12 @@
 
 using namespace std;
 
+void sayHi() {
+	cout << "Hello user" << endl;
+}
+
 int main(int argc, const char * argv[]) {
-	int luckyNums[] = {4, 8, 16, 32};
-	
-	cout << luckyNums[0] << endl;
-	luckyNums[0] = 19;
-	cout << luckyNums[0] << endl;
-	
-	int luckyNums2[20] = {0,1}; // Don't need to initialize all elements!
-	for (int i=0; i<20; ++i) {
-		cout << luckyNums2[i] << endl;
-	}
+	sayHi();
 	
 	return 0;
 }
