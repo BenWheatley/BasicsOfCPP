@@ -14,20 +14,24 @@
 
 using namespace std;
 
-int exponent(int base, int power) {
-	int result = 1;
-	for (int i=0; i<power; i++) {
-		result *= base;
-	}
-	return result;
-}
-
 int main(int argc, const char * argv[]) {
-	cout << exponent(10, 3) << endl;
-	cout << exponent(2, 10) << endl;
-	cout << exponent(16, 2) << endl;
-	cout << exponent(256, 3) << endl;
-	cout << exponent(2, 24) << endl;
+	int numGrid[4][5] = {
+		{1,2,3,4,5},
+		{1,2,3,2,1},
+		{5,4,3,4,5},
+		{5,4,3,2,1}
+	};
+	
+	for (int row=0; row<4; row++) {
+		cout << "{";
+		for (int col=0; col<5; col++) {
+			cout << numGrid[row][col];
+			if (col<4) cout << ",";
+		}
+		cout << "}";
+		if (row<3) cout << ",\n";
+	}
+	cout << endl;
 	
 	return 0;
 }
