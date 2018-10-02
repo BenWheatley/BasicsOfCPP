@@ -14,23 +14,16 @@
 
 using namespace std;
 
+double getMax(double a, double b) {
+	if (a>b) {
+		return a;
+	}
+	return b;
+}
+
 int main(int argc, const char * argv[]) {
-	bool isStereotype = true;
-	bool isTall = false;
-	
-	if (isStereotype) {
-		cout << "Stereotype detected!" << endl;
-	} else {
-		cout << "Stereotype _NOT_ detected!" << endl;
-	}
-	
-	if (isStereotype && isTall) {
-		cout << "Tall stereotype!" << endl;
-	} else if (isStereotype && !isTall) {
-		cout << "Short stereotype!" << endl;
-	} else {
-		cout << "Is not a stereotype!" << endl;
-	}
+	cout << getMax(27.9, -5.0) << endl;
+	cout << getMax(-27.9, 5.0) << endl;
 	
 	return 0;
 }
