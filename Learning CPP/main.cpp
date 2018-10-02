@@ -19,22 +19,18 @@ public:
 	string title;
 	string author;
 	int pageCount;
-	Book() {
-		cout << "Creating Book" << endl;
+	Book(string aTitle, string aAuthor, int aPageCount) {
+		title = aTitle;
+		author = aAuthor;
+		pageCount = aPageCount;
 	}
 };
 
 int main(int argc, const char * argv[]) {
 	
-	Book book1;
-	book1.title = "Haymaker";
-	book1.author = "Example McDougal";
-	book1.pageCount = 500;
+	Book book1("Haymaker", "Example McDougal", 500);
 	
-	Book book2;
-	book2.title = "Lord of the Flappers";
-	book2.author = "Bob";
-	book2.pageCount = 146;
+	Book book2("Lord of the Flappers", "Bob", 146);
 	
 	cout << book1.title << endl;
 	cout << book2.title << endl;
