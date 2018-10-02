@@ -15,18 +15,16 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	string colour, pluralNoun, celebrity;
+	int luckyNums[] = {4, 8, 16, 32};
 	
-	cout << "Enter colour: " << endl;
-	getline(cin, colour);
-	cout << "Enter plural noun: " << endl;
-	getline(cin, pluralNoun);
-	cout << "Enter celebrity: " << endl;
-	getline(cin, celebrity);
+	cout << luckyNums[0] << endl;
+	luckyNums[0] = 19;
+	cout << luckyNums[0] << endl;
 	
-	cout << "Roses are " << colour << endl;
-	cout << pluralNoun << " are blue" << endl;
-	cout << "I love " << celebrity << endl;
+	int luckyNums2[20] = {0,1}; // Don't need to initialize all elements!
+	for (int i=0; i<20; ++i) {
+		cout << luckyNums2[i] << endl;
+	}
 	
 	return 0;
 }
