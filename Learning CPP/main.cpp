@@ -15,18 +15,15 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	int age;
-	cout << "Enter your age: ";
-	cin >> age;
+	double num1, num2;
 	
-	cin.clear();
-	cin.ignore(INT_MAX,'\n');
+	cout << "Enter first number\n";
+	cin >> num1;
 	
-	string name;
-	cout << "Enter your name: ";
-	getline(cin, name);
+	cout << "Enter second number\n";
+	cin >> num2;
 	
-	cout << "Hello " << name << "; You are " << age << " years old!" << endl;
+	cout << "Total: " << num1+num2;
 	
 	return 0;
 }
