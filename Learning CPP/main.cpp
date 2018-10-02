@@ -14,34 +14,27 @@
 
 using namespace std;
 
-int main(int argc, const char * argv[]) {
-	double n1, n2;
-	char op;
-	
-	while (true) {
-		cout << "Enter n1: " << endl;
-		cin >> n1;
-		cout << "Enter op: " << endl;
-		cin >> op;
-		cout << "Enter n2: " << endl;
-		cin >> n2;
-		
-		double result;
-		if (op=='+') {
-			result = n1+n2;
-		} else if (op=='-') {
-			result = n1-n2;
-		} else if (op=='*') {
-			result = n1*n2;
-		} else if (op=='/') {
-			result = n1/n2;
-		} else {
-			cout << "Invalid op" << endl;
-			return 1;
-		}
-		
-		cout << result << endl;
+string dayNumToName(int dayNum) {
+	switch (dayNum) {
+		case 0: return "Monday";
+		case 1: return "Tuesday";
+		case 2: return "Wednesday";
+		case 3: return "Thursday";
+		case 4: return "Friday";
+		case 5: return "Saturday";
+		case 6: return "Sunday";
+		default:
+			return "invalid day";
 	}
+}
+
+int main(int argc, const char * argv[]) {
+	int dayIn;
+	
+	cout << "Day number: " << endl;
+	cin >> dayIn;
+	
+	cout << "Day name: " << dayNumToName(dayIn) << endl;
 	
 	return 0;
 }
