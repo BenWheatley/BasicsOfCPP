@@ -21,9 +21,23 @@ double getMax(double a, double b) {
 	return b;
 }
 
+double getMax(double a, double b, double c) {
+	if (a>b && a>c) {
+		return a;
+	}
+	if (b>a && b>c) {
+		return b;
+	}
+	return c;
+}
+
 int main(int argc, const char * argv[]) {
 	cout << getMax(27.9, -5.0) << endl;
 	cout << getMax(-27.9, 5.0) << endl;
+	
+	cout << getMax(2, 5, 10) << endl;
+	cout << getMax(100, 7, 11) << endl;
+	cout << getMax(1, 4, 3) << endl;
 	
 	return 0;
 }
