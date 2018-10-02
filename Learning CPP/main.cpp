@@ -19,6 +19,9 @@ public:
 	string title;
 	string author;
 	int pageCount;
+	Book() {
+		cout << "Creating Book" << endl;
+	}
 };
 
 int main(int argc, const char * argv[]) {
