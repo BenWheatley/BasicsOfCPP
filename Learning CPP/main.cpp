@@ -14,24 +14,27 @@
 
 using namespace std;
 
+class Book {
+public:
+	string title;
+	string author;
+	int pageCount;
+};
+
 int main(int argc, const char * argv[]) {
-	int age = 17;
-	double gpa = 4.3;
-	string name = "Mike";
 	
-	cout << "Memory address of age: " << &age << endl;
+	Book book1;
+	book1.title = "Haymaker";
+	book1.author = "Example McDougal";
+	book1.pageCount = 500;
 	
-	int *pAge = &age;
-	double *pGpa = &gpa;
-	string *pName = &name;
+	Book book2;
+	book2.title = "Lord of the Flappers";
+	book2.author = "Bob";
+	book2.pageCount = 146;
 	
-	cout << "Memory address in pAge: " << pAge << endl;
-	cout << "Memory address in pGpa: " << pGpa << endl;
-	cout << "Memory address in pName: " << pName << endl;
-	
-	cout << "Value in memory address pAge: " << *pAge << endl;
-	cout << "Value in memory address pGpa: " << *pGpa << endl;
-	cout << "Value in memory address pName: " << *pName << endl;
+	cout << book1.title << endl;
+	cout << book2.title << endl;
 	
 	return 0;
 }
