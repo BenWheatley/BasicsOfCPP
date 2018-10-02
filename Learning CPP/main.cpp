@@ -14,32 +14,33 @@
 
 using namespace std;
 
-class Book {
+class Student {
 public:
-	string title;
-	string author;
-	int pageCount;
-	Book(string aTitle, string aAuthor, int aPageCount) {
-		title = aTitle;
-		author = aAuthor;
-		pageCount = aPageCount;
+	string name;
+	string major;
+	double gpa;
+	Student(string aName, string aMajor, double aGPA) {
+		name = aName;
+		major = aMajor;
+		gpa = aGPA;
 	}
-	Book() {
-		title = "None";
-		author = "N/A";
-		pageCount = 0;
+	
+	bool hasHonours() {
+		return gpa>=3.5;
 	}
 };
 
 int main(int argc, const char * argv[]) {
 	
-	Book book1("Haymaker", "Example McDougal", 500);
-	Book book2("Lord of the Flappers", "Bob", 146);
-	Book book3;
+	Student student1("Dave", "Science", 2.3);
+	Student student2("Jim", "Business", 3.8);
+	Student student3("Anne", "Business", 4.8);
+	Student student4("Claire", "Science", 3.1);
 	
-	cout << book1.title << endl;
-	cout << book2.title << endl;
-	cout << book3.title << endl;
+	cout << student1.hasHonours() << endl;
+	cout << student2.hasHonours() << endl;
+	cout << student3.hasHonours() << endl;
+	cout << student4.hasHonours() << endl;
 	
 	return 0;
 }
