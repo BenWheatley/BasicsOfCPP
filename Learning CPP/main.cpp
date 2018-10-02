@@ -24,16 +24,22 @@ public:
 		author = aAuthor;
 		pageCount = aPageCount;
 	}
+	Book() {
+		title = "None";
+		author = "N/A";
+		pageCount = 0;
+	}
 };
 
 int main(int argc, const char * argv[]) {
 	
 	Book book1("Haymaker", "Example McDougal", 500);
-	
 	Book book2("Lord of the Flappers", "Bob", 146);
+	Book book3;
 	
 	cout << book1.title << endl;
 	cout << book2.title << endl;
+	cout << book3.title << endl;
 	
 	return 0;
 }
