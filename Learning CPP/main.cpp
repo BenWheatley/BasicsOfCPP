@@ -15,23 +15,23 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	int numGrid[4][5] = {
-		{1,2,3,4,5},
-		{1,2,3,2,1},
-		{5,4,3,4,5},
-		{5,4,3,2,1}
-	};
+	int age = 17;
+	double gpa = 4.3;
+	string name = "Mike";
 	
-	for (int row=0; row<4; row++) {
-		cout << "{";
-		for (int col=0; col<5; col++) {
-			cout << numGrid[row][col];
-			if (col<4) cout << ",";
-		}
-		cout << "}";
-		if (row<3) cout << ",\n";
-	}
-	cout << endl;
+	cout << "Memory address of age: " << &age << endl;
+	
+	int *pAge = &age;
+	double *pGpa = &gpa;
+	string *pName = &name;
+	
+	cout << "Memory address in pAge: " << pAge << endl;
+	cout << "Memory address in pGpa: " << pGpa << endl;
+	cout << "Memory address in pName: " << pName << endl;
+	
+	cout << "Value in memory address pAge: " << *pAge << endl;
+	cout << "Value in memory address pGpa: " << *pGpa << endl;
+	cout << "Value in memory address pName: " << *pName << endl;
 	
 	return 0;
 }
