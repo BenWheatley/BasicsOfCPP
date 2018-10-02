@@ -15,12 +15,12 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	int i = 0;
+	int i = 110;
 	
-	while (i<10) {
+	do {
 		i++;
 		cout << i << endl;
-	}
+	} while (i<10);
 	
 	return 0;
 }
