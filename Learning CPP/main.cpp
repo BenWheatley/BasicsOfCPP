@@ -14,13 +14,16 @@
 
 using namespace std;
 
-void sayHi(string name, int age) {
-	cout << "Hello " << name << ", my records show your age is " << age << endl;
-}
+void sayHi(string, int);
 
 int main(int argc, const char * argv[]) {
 	sayHi("Bob", 45);
 	sayHi("Steve", 19);
+	sayHi("Mark", 26);
 	
 	return 0;
+}
+
+void sayHi(string name, int age) {
+	cout << "Hello " << name << ", my records show your age is " << age << endl;
 }
