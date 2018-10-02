@@ -19,5 +19,12 @@ int main(int argc, const char * argv[]) {
 		cout << i << endl;
 	}
 	
+	cout << endl;
+	
+	int nums[] = {1,3,4,6,4,-2};
+	for (int i=0; i<sizeof(nums)/sizeof(int); ++i) {
+		cout << nums[i] << endl;
+	}
+	
 	return 0;
 }
