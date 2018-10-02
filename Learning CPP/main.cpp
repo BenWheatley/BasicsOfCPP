@@ -14,50 +14,39 @@
 
 using namespace std;
 
-class Student {
-private:
-	string name;
-	string major;
-	double gpa;
+class Chef {
 public:
-	Student(string aName, string aMajor, double aGPA) {
-		name = aName;
-		major = aMajor;
-		gpa = aGPA;
+	void makeChicken() {
+		cout << "Makes chicken" << endl;
 	}
-	
-	bool hasHonours() {
-		return gpa>=3.5;
+	void makeCake() {
+		cout << "Makes cake" << endl;
 	}
-	
-	void setGPA(double aGPA) {
-		if (aGPA>0 && aGPA<5.0)	{
-			gpa = aGPA;
-		} else {
-			gpa = 2.5;
-		}
+	void makeSpecial() {
+		cout << "Makes BBQ ribs" << endl;
 	}
-	double getGPA() {
-		return gpa;
+};
+
+class ItalianChef: public Chef {
+public:
+	void makePizza() {
+		cout << "Makes pizza" << endl;
 	}
-	
+	void makeSpecial() {
+		cout << "Makes Parma ham" << endl;
+	}
 };
 
 int main(int argc, const char * argv[]) {
 	
-	Student student1("Dave", "Science", 2.3);
-	Student student2("Jim", "Business", 3.8);
-	Student student3("Anne", "Business", 4.8);
-	Student student4("Claire", "Science", 3.1);
+	Chef chef;
+	chef.makeCake();
+	chef.makeSpecial();
 	
-	cout << "student2 GPA: " << student2.getGPA() << endl;
-	student2.setGPA(-1.0);
-	cout << "student2 GPA: " << student2.getGPA() << endl;
-	
-	cout << student1.hasHonours() << endl;
-	cout << student2.hasHonours() << endl;
-	cout << student3.hasHonours() << endl;
-	cout << student4.hasHonours() << endl;
+	ItalianChef italianChef;
+	italianChef.makeCake();
+	italianChef.makePizza();
+	italianChef.makeSpecial();
 	
 	return 0;
 }
