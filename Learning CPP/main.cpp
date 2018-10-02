@@ -15,12 +15,20 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	int i = 110;
+	int target = rand() % 6;
+	int guess = -1;
+	int guessCount = 0, guessLimit = 3;
 	
 	do {
-		i++;
-		cout << i << endl;
-	} while (i<10);
+		cout << "Enter guess: " << endl;
+		cin >> guess;
+		guessCount++;
+	} while (target != guess && guessCount<=guessLimit);
 	
+	if (target == guess) {
+		cout << "Correct!" << endl;
+	} else {
+		cout << "Fail! Answer was " << target << endl;
+	}
 	return 0;
 }
