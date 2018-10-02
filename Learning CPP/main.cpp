@@ -14,16 +14,17 @@
 
 using namespace std;
 
-void sayHi(string, int);
+double cube(double);
 
 int main(int argc, const char * argv[]) {
-	sayHi("Bob", 45);
-	sayHi("Steve", 19);
-	sayHi("Mark", 26);
+	cout << cube(3) << endl;
+	cout << cube(10) << endl;
+	cout << cube(2) << endl;
+	cout << cube(3.5) << endl;
 	
 	return 0;
 }
 
-void sayHi(string name, int age) {
-	cout << "Hello " << name << ", my records show your age is " << age << endl;
+double cube(double in) {
+	return in*in*in;
 }
