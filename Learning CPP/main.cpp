@@ -40,6 +40,7 @@ int main(int argc, const char * argv[]) {
 	 ::out = open for writing (how is this not one of {::app, ::trunc}?)
 	 ::app = append
 	 ::trunc = default = truncate
+	 ::ate = at end (how is this different from app?)
 	 */
 	
 	if (!writer2) {
