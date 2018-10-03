@@ -169,5 +169,10 @@ int main(int argc, const char * argv[]) {
 	gs->getClass();
 	gs->getDerived();
 	
+	shared_ptr<Animal> gs2 = make_shared<GermanShepherd>();
+	
+	gs2->getClass();
+	// gs2->getDerived(); // Can't be called even though the constructed object has this method, because this isn't python
+	
 	return 0;
 }
