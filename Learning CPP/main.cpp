@@ -16,37 +16,34 @@
 
 using namespace std;
 
+int add(int a, int b=0) {
+	return a+b;
+}
 
+int add(int a, int b, int c) {
+	return a+b+c;
+}
+
+int fibonaci(int a) {
+	if (a<=2) {
+		return 1;
+	}
+	return fibonaci(a-1)+fibonaci(a-2);
+}
 
 int main(int argc, const char * argv[]) {
-	// Vector
+	// Functions
 	
-	vector <int> lotteryNumbersVector(10);
+	cout << add(1) << endl;
 	
-	int lotteryNumbersArray[5] = {1,3,7,13,37};
+	cout << add(1, 2) << endl;
 	
-	lotteryNumbersVector.insert(lotteryNumbersVector.begin(),
-								lotteryNumbersArray,
-								lotteryNumbersArray+3);
+	cout << add(1, 2, 3) << endl;
 	
-	lotteryNumbersVector.insert(lotteryNumbersVector.begin(), -1);
-	
-	lotteryNumbersVector.at(8) = -8;
-	
-	for (int i=0; i<lotteryNumbersVector.size(); ++i) {
-		cout << lotteryNumbersVector.at(i) << endl;
+	for (int i=1; i<20; ++i) {
+		cout << fibonaci(i) << ", ";
 	}
-	
-	cout << "Front: " << lotteryNumbersVector.front() << endl;
-	cout << "Back: " << lotteryNumbersVector.back() << endl;
-	lotteryNumbersVector.push_back(64);
-	cout << "Back again: " << lotteryNumbersVector.back() << endl;
-	lotteryNumbersVector.pop_back();
-	cout << "Third back: " << lotteryNumbersVector.back() << endl;
-	
-	if (lotteryNumbersVector.empty()) {
-		cout << "Is empty" << endl;
-	}
+	cout << "..." << endl;
 	
 	return 0;
 }
