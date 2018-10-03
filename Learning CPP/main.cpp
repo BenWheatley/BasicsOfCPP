@@ -13,37 +13,58 @@
 
 #include <cmath>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
-int add(int a, int b=0) {
-	return a+b;
-}
-
-int add(int a, int b, int c) {
-	return a+b+c;
-}
-
-int fibonaci(int a) {
-	if (a<=2) {
-		return 1;
-	}
-	return fibonaci(a-1)+fibonaci(a-2);
-}
-
 int main(int argc, const char * argv[]) {
-	// Functions
+	// File i/o
 	
-	cout << add(1) << endl;
+	string quote = "Blah one two three example";
+	string filename = "output.txt";
+	ofstream writer(filename);
 	
-	cout << add(1, 2) << endl;
-	
-	cout << add(1, 2, 3) << endl;
-	
-	for (int i=1; i<20; ++i) {
-		cout << fibonaci(i) << ", ";
+	if (!writer) {
+		cout << "Error opening file!";
+		return -1;
+	} else {
+		writer << quote << endl;
+		writer.close();
 	}
-	cout << "..." << endl;
+	
+	ofstream writer2(filename, ios::app);
+	
+	/*
+	 ::binary = open as binary
+	 ::in = open for reading
+	 ::out = open for writing (how is this not one of {::app, ::trunc}?)
+	 ::app = append
+	 ::trunc = default = truncate
+	 */
+	
+	if (!writer2) {
+		cout << "Error opening file!";
+		return -1;
+	} else {
+		writer2 << "\n - {{citation needed}}" << endl;
+		writer2.close();
+	}
+	
+	char letter;
+	
+	ifstream reader(filename);
+	
+	if (!reader) {
+		cout << "Error opening file!";
+		return -1;
+	} else {
+		for (int i=0; !reader.eof(); ++i) {
+			reader.get(letter);
+			cout << letter;
+		}
+		cout << endl;
+		reader.close();
+	}
 	
 	return 0;
 }
