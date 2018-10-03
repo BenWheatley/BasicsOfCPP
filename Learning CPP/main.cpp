@@ -18,53 +18,37 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-	// File i/o
+	// Exceptions
 	
-	string quote = "Blah one two three example";
-	string filename = "output.txt";
-	ofstream writer(filename);
+	int n = 0;
 	
-	if (!writer) {
-		cout << "Error opening file!";
-		return -1;
-	} else {
-		writer << quote << endl;
-		writer.close();
-	}
-	
-	ofstream writer2(filename, ios::app);
-	
-	/*
-	 ::binary = open as binary
-	 ::in = open for reading
-	 ::out = open for writing (how is this not one of {::app, ::trunc}?)
-	 ::app = append
-	 ::trunc = default = truncate
-	 ::ate = at end (how is this different from app?)
-	 */
-	
-	if (!writer2) {
-		cout << "Error opening file!";
-		return -1;
-	} else {
-		writer2 << "\n - {{citation needed}}" << endl;
-		writer2.close();
-	}
-	
-	char letter;
-	
-	ifstream reader(filename);
-	
-	if (!reader) {
-		cout << "Error opening file!";
-		return -1;
-	} else {
-		for (int i=0; !reader.eof(); ++i) {
-			reader.get(letter);
-			cout << letter;
+	try {
+		if (n!=0) {
+			cout << 2/n << endl;
+		} else {
+			throw n;
 		}
-		cout << endl;
-		reader.close();
+	} catch (int badNumber) {
+		cout << "Bad number is " << badNumber << endl;
+	}
+	
+	// Types
+	const string div_zero = "divide by zero";
+	exception e = runtime_error(div_zero);
+	
+	for (n=0; n<=1; ++n) {
+		try {
+			if (n!=0) {
+				cout << 2/n << endl;
+			} else {
+				throw runtime_error(div_zero);
+			}
+			throw exception();
+		} catch (runtime_error e) {
+			cout << "Exception.what: " << e.what() << endl;
+		} catch (exception e) {
+			cout << "Exception.what: " << e.what() << endl;
+		}
 	}
 	
 	return 0;
