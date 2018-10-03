@@ -45,6 +45,8 @@ public:
 	static int getNumOfAnimals() {	return numOfAnimals;	}
 	
 	void toString();
+	
+	virtual void getClass() { cout << "I'm an animal (virtual method)" << endl;	}
 };
 
 int Animal::numOfAnimals = 0;
@@ -83,6 +85,8 @@ public:
 	Dog() : Animal(){}; // One possible way to initialize default constructor; note to self, this syntax is completely different from what I'm used to
 	
 	void toString();
+	
+	void getClass() { cout << "I'm a dog (overwritten virtual method)" << endl;	}
 };
 
 Dog::Dog(double height, double weight, string name, string breed) : Animal(height, weight, name) {
@@ -97,28 +101,34 @@ void Dog::toString() {
 int main(int argc, const char * argv[]) {
 	cout << "Animal count: " << Animal::getNumOfAnimals() << endl;
 	
-	Animal blank;
-	Animal fred(50, 33, "Fred");
-	Animal sam;
-	sam.setName("Sam");
-	sam.setHeightCM(160);
-	sam.setWeightKG(87);
+	Animal *blank = new Animal();
+	Animal *fred = new Animal(50, 33, "Fred");
+	Animal *sam = new Animal();
+	sam->setName("Sam");
+	sam->setHeightCM(160);
+	sam->setWeightKG(87);
 	
 	cout << "Animal count: " << Animal::getNumOfAnimals() << endl;
 	
-	blank.toString();
-	fred.toString();
-	sam.toString();
+	blank->toString();
+	fred->toString();
+	sam->toString();
 	
 	cout << "Animal count: " << Animal::getNumOfAnimals() << endl;
 	
-	Dog spot(38, 16, "Spots", "Dalmation");
+	Dog *spot = new Dog(38, 16, "Spots", "Dalmation");
 	
 	cout << "Animal count: " << Animal::getNumOfAnimals() << endl;
 	
-	spot.toString();
-	spot.printBreed();
-	spot.Animal::toString();
+	spot->toString();
+	spot->printBreed();
+	spot->Animal::toString();
+	
+	// Deletion automatic at end of execution if they are not pointers, but not automatic if they are pointers
+	delete blank;
+	delete fred;
+	delete sam;
+	delete spot;
 	
 	return 0;
 }
