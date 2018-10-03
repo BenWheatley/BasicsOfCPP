@@ -12,77 +12,41 @@
 // Then https://www.youtube.com/watch?v=Rub-JsjMhWY tutorial
 
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
 
 
 int main(int argc, const char * argv[]) {
-	// Strings
-	char happy[] = {'H', 'a', 'p', 'p', 'y', '\0'};
+	// Vector
 	
-	string birthday = "Birthday";
+	vector <int> lotteryNumbersVector(10);
 	
-	cout << happy + birthday << endl;
+	int lotteryNumbersArray[5] = {1,3,7,13,37};
 	
-	cout << "What's your name?" << endl;
-	string yourName;
-	getline(cin, yourName);
+	lotteryNumbersVector.insert(lotteryNumbersVector.begin(),
+								lotteryNumbersArray,
+								lotteryNumbersArray+3);
 	
-	cout << "hello " << yourName << endl;
+	lotteryNumbersVector.insert(lotteryNumbersVector.begin(), -1);
 	
-	double constant = 0.57721;
-	string guess;
-	double guessDouble;
+	lotteryNumbersVector.at(8) = -8;
 	
-	cout << "Guess a number: " << endl;
-	getline(cin, guess);
-	
-	guessDouble = stod(guess);
-	
-	if (guessDouble == constant) {
-		cout << "Right" << endl;
-	} else {
-		cout << "Wrong" << endl;
+	for (int i=0; i<lotteryNumbersVector.size(); ++i) {
+		cout << lotteryNumbersVector.at(i) << endl;
 	}
 	
-	cout << "String len: " << guess.length() << endl;
-	cout << "String size: " << guess.size() << endl;
-	cout << "String empty: " << guess.empty() << endl;
-	string s = "one";
-	s.append(", two");
-	cout << s << endl;
+	cout << "Front: " << lotteryNumbersVector.front() << endl;
+	cout << "Back: " << lotteryNumbersVector.back() << endl;
+	lotteryNumbersVector.push_back(64);
+	cout << "Back again: " << lotteryNumbersVector.back() << endl;
+	lotteryNumbersVector.pop_back();
+	cout << "Third back: " << lotteryNumbersVector.back() << endl;
 	
-	string s1 = "dog", s2 = "cat";
-	
-	cout << "comparison:\n";
-	cout << s1.compare(s2) << endl;
-	cout << s1.compare(s1) << endl;
-	cout << s2.compare(s1) << endl;
-	
-	cout << "assign:\n";
-	string s3 = s1.assign(s1);
-	cout << "s1: " << s1 << endl;
-	cout << "s3: " << s3 << endl;
-	s3[0] = 'f';
-	cout << "s1: " << s1 << endl;
-	cout << "s3: " << s3 << endl;
-	string s4 = s1.assign(s1, 0, 3);
-	cout << "s4: " << s4 << endl;
-	string longString = "hello this is a long string zed";
-	cout << "find: " << longString.find("o") << endl;
-	cout << "find: " << longString.find("z") << endl;
-	
-	longString.insert(6, yourName+" ");
-	cout << longString << endl;
-	
-	longString.erase(6, yourName.length()+1);
-	cout << longString << endl;
-	
-	longString.replace(0, 5, "HALLO");
-	cout << longString << endl;
-	
-	// Vector
+	if (lotteryNumbersVector.empty()) {
+		cout << "Is empty" << endl;
+	}
 	
 	return 0;
 }
