@@ -164,5 +164,10 @@ int main(int argc, const char * argv[]) {
 	whatClassAreYou(a);
 	whatClassAreYou(d);
 	
+	shared_ptr<GermanShepherd> gs = make_shared<GermanShepherd>();
+	
+	gs->getClass();
+	gs->getDerived();
+	
 	return 0;
 }
