@@ -98,6 +98,28 @@ void Dog::toString() {
 			<< this->getHeight() << "cm tall, and is a " << this->breed << endl;
 }
 
+class GermanShepherd : public Dog {
+public:
+	void getClass() {
+		cout << "I'm a German Shepherd" << endl;
+	}
+	void getDerived() {
+		cout << "I'm an animal and a dog" << endl;
+	}
+};
+
+void whatClassAreYou(Animal *animal) {
+	// Without "virtual" keyword, will always be Animal::getClass
+	// With "virtual" keyword, will be <instancetype>::getClass
+	animal->getClass();
+}
+
+void whatClassAreYou(shared_ptr<Animal> animal) {
+	// Without "virtual" keyword, will always be Animal::getClass
+	// With "virtual" keyword, will be <instancetype>::getClass
+	animal->getClass();
+}
+
 int main(int argc, const char * argv[]) {
 	cout << "Animal count: " << Animal::getNumOfAnimals() << endl;
 	
@@ -129,6 +151,18 @@ int main(int argc, const char * argv[]) {
 	delete fred;
 	delete sam;
 	delete spot;
+	
+	cout << "shared_ptr example: " << endl;
+	
+	shared_ptr<Animal> a = make_shared<Animal>();
+	shared_ptr<Dog> d = make_shared<Dog>();
+	a->setName("Katie");
+	d->setName("Molly");
+	a->getClass();
+	d->getClass();
+	
+	whatClassAreYou(a);
+	whatClassAreYou(d);
 	
 	return 0;
 }
