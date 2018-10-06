@@ -19,6 +19,43 @@ using namespace std;
 
 // Classes
 
+class Box {
+private:
+	int l = 0;
+	int b = 0;
+	int h = 0;
+public:
+	Box() : l(0), b(0), h(0) {};
+	Box(int l, int b, int h) : l(l), b(b), h(h) {};
+	Box(Box *otherBox);
+	
+	int getLength() { return l; }
+	int getBreadth() { return b; }
+	int getHeight() { return h; }
+	long long CalculateVolume() {
+		long long ll = l, lb = b, lh = h; // Because this wouldn't be specified long-long if none of the test cases overflowed
+		return ll*lb*lh;
+	}
+	
+	bool operator < (Box& b) {
+		return (this->l < b.l) ||
+		(this->b < b.b && this->l == b.l) ||
+		(this->h < b.h && this->b == b.b && this->l == b.l);
+	}
+};
+
+class BadLengthException : public runtime_error {
+public:
+	BadLengthException(int length) : runtime_error(to_string(length)) {};
+};
+
+Box::Box(Box *otherBox) { l=otherBox->l; b=otherBox->b; h=otherBox->h; }
+
+ostream& operator << (ostream& out, Box& B) {
+	out << B.getLength() << " " << B.getBreadth() << " " << B.getHeight();
+	return out;
+}
+
 class Animal {
 private:
 	double height;
@@ -173,6 +210,22 @@ int main(int argc, const char * argv[]) {
 	
 	gs2->getClass();
 	// gs2->getDerived(); // Can't be called even though the constructed object has this method, because this isn't python
+	
+	int big1 = 0xFFFFFF;
+	int overflowing = big1*big1;
+	long long isItNow = big1*big1;
+	long long big2 = big1;
+	long long andNow = big2*big2;
+	cout << "big1: " << big1 <<
+	"\noverflowing: " << overflowing <<
+	"\nisItNow: " << isItNow <<
+	"\nandNow: " << andNow << endl;
+	
+	try {
+		throw BadLengthException(10);
+	} catch (BadLengthException e) {
+		cout << e.what() << endl;
+	}
 	
 	return 0;
 }
