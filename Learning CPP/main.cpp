@@ -342,5 +342,7 @@ int main(int argc, const char * argv[]) {
 		cout << e.what() << endl;
 	}
 	
+	challenge();
+	
 	return 0;
 }
