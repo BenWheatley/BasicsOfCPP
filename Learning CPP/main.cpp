@@ -236,9 +236,61 @@ public:
 };
 
 void challenge() {
-	LRUCache cache(4);
-	
+	cout << "Challenge:" << endl;
 	int out;
+	
+	LRUCache cache(644);
+	
+	out = cache.get(3); cout << out << endl;
+	out = cache.get(19); cout << out << endl;
+	out = cache.get(8); cout << out << endl;
+	cache.set(1, 1195);
+	cache.set(5, 1404);
+	out = cache.get(6); cout << out << endl;
+	cache.set(15, 1020);
+	cache.set(7, 1010);
+	out = cache.get(8); cout << out << endl;
+	cache.set(7, 1628);
+	cache.set(16, 1498);
+	out = cache.get(11); cout << out << endl;
+	out = cache.get(14); cout << out << endl;
+	out = cache.get(19); cout << out << endl;
+	out = cache.get(8); cout << out << endl;
+	cache.set(12, 267);
+	cache.set(19, 125);
+	out = cache.get(8); cout << out << endl;
+	cache.set(15, 1241);
+	cache.set(8, 1936);
+	out = cache.get(1); cout << out << endl;
+	cache.set(17, 1162);
+	cache.set(13, 151);
+	out = cache.get(19); cout << out << endl;
+	out = cache.get(20); cout << out << endl;
+	out = cache.get(14); cout << out << endl;
+	out = cache.get(16); cout << out << endl;
+	out = cache.get(7); cout << out << endl;
+	cache.set(2, 1305);
+	cache.set(12, 287);
+	cache.set(9, 160);
+	out = cache.get(16); cout << out << endl;
+	out = cache.get(17); cout << out << endl;
+	cache.set(5, 1524);
+	cache.set(16, 81);
+	cache.set(4, 312);
+	cache.set(9, 89);
+	cache.set(19, 1306);
+	cache.set(18, 1041);
+	cache.set(16, 237);
+	out = cache.get(8); cout << out << endl;
+	cache.set(11, 387);
+	out = cache.get(1); cout << out << endl;
+	out = cache.get(8); cout << out << endl;
+	
+	/*LRUCache cache(4);
+	
+	out = cache.get(3); cout << out << endl;
+	out = cache.get(19); cout << out << endl;
+	out = cache.get(8); cout << out << endl;
 	cache.set(4, 2);
 	cache.set( 2, 7);
 	out = cache.get( 2); cout << out << endl;
@@ -249,7 +301,7 @@ void challenge() {
 	out = cache.get( 5); cout << out << endl;
 	
 	
-	return;
+	return;*/
 	
 	int n, capacity,i;
 	cin >> n >> capacity;
