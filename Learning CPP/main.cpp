@@ -13,6 +13,7 @@
 
 #include <cmath>
 #include <vector>
+#include <map>
 #include <fstream>
 
 using namespace std;
@@ -156,6 +157,120 @@ void whatClassAreYou(shared_ptr<Animal> animal) {
 	// With "virtual" keyword, will be <instancetype>::getClass
 	animal->getClass();
 }
+
+// MARK: cache challenge
+
+struct Node{
+	Node* next;
+	Node* prev;
+	int value;
+	int key;
+	Node(Node* p, Node* n, int k, int val):prev(p),next(n),key(k),value(val){};
+	Node(int k, int val):prev(NULL),next(NULL),key(k),value(val){};
+};
+
+class Cache{
+	
+protected:
+	map<int,Node*> mp; //map the key to the node in the linked list
+	int cp;  //capacity
+	Node* tail; // double linked list tail pointer
+	Node* head; // double linked list head pointer
+	virtual void set(int, int) = 0; //set function
+	virtual int get(int) = 0; //get function
+	
+};
+
+class LRUCache : public Cache {
+public:
+	LRUCache(int capacity) { cp = capacity; };
+	
+	void set(int key, int value) {
+		// seek key:
+		//     key found:
+		//         extract, move to front
+		//     key missing:
+		//         insert at front
+		//         delete last item
+		try {
+			Node *node = mp.at(key);
+			
+			if (node->prev != nullptr) {
+				node->prev->next = node->next;
+			}
+			if (node->next != nullptr) {
+				node->next->prev = node->prev;
+			}
+			node->prev = nullptr;
+			node->next = this->head;
+			this->head->prev = node;
+			this->head = node;
+			
+		} catch (...) {
+			Node *n = new Node(NULL, head, key, value);
+			mp[key] = n;
+			this->head = n;
+			
+			if (mp.size()==1) {
+				this->tail = n;
+			}
+			
+			if (mp.size() > cp && this->tail != NULL) {
+				mp.erase(this->tail->key);
+				
+				Node *newTail = this->tail->prev;
+				
+				if (newTail != NULL) {
+					newTail->next = NULL;
+				}
+			}
+		}
+	};
+	int get(int key) {
+		try {
+			return (mp.at(key))->value;
+		} catch (...) {
+			return -1;
+		}
+	};
+};
+
+void challenge() {
+	LRUCache cache(4);
+	
+	int out;
+	cache.set(4, 2);
+	cache.set( 2, 7);
+	out = cache.get( 2); cout << out << endl;
+	cache.set( 1, 8);
+	cache.set( 5, 9);
+	cache.set( 6, 15);
+	out = cache.get( 4); cout << out << endl;
+	out = cache.get( 5); cout << out << endl;
+	
+	
+	return;
+	
+	int n, capacity,i;
+	cin >> n >> capacity;
+	LRUCache l(capacity);
+	for(i=0;i<n;i++) {
+		string command;
+		cin >> command;
+		if(command == "get") {
+			int key;
+			cin >> key;
+			cout << l.get(key) << endl;
+		}
+		else if(command == "set") {
+			int key, value;
+			cin >> key >> value;
+			l.set(key,value);
+		}
+	}
+}
+
+// MARK: main block
 
 int main(int argc, const char * argv[]) {
 	cout << "Animal count: " << Animal::getNumOfAnimals() << endl;
